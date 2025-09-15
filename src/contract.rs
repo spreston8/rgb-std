@@ -34,10 +34,11 @@ use chrono::{DateTime, Utc};
 use commit_verify::{ReservedBytes, StrictHash};
 use hypersonic::{
     AcceptError, Articles, AuthToken, CallParams, CellAddr, Codex, Consensus, ContractId,
-    CoreParams, DataCell, EffectiveState, IssueError, IssueParams, Ledger, LibRepo, Memory,
+    CoreParams, DataCell, EffectiveState, IssueError, IssueParams, /* Ledger - REPLACED */ LibRepo, Memory,
     MethodName, NamedState, Operation, Opid, SemanticError, Semantics, SigBlob, StateAtom,
     StateName, Stock, Transition,
 };
+use rholang_sonic::RholangCodex;
 use indexmap::{IndexMap, IndexSet};
 use rgb::{
     ContractApi, ContractVerify, OperationSeals, ReadOperation, RgbSeal, RgbSealDef,
@@ -282,7 +283,8 @@ impl<Seal: Clone> CreateParams<Seal> {
 pub struct Contract<S: Stock, P: Pile> {
     /// Cached contract id
     contract_id: ContractId,
-    ledger: Ledger<S>,
+		// ledger: Ledger<S>, - REPLACED
+    ledger: RholangCodex<S>,
     pile: P,
 }
 
@@ -301,7 +303,8 @@ impl<S: Stock, P: Pile> Contract<S, P> {
     {
         let contract_id = articles.contract_id();
         let genesis_opid = articles.genesis_opid();
-        let ledger = Ledger::new(articles, conf)
+				// let ledger = Ledger::new(articles, conf) - REPLACED
+        let ledger = RholangCodex::new(articles, conf)
             .map_err(MultiError::with_third)
             .map_err(MultiError::from_other_a)?;
         let conf: S::Conf = ledger.config();
@@ -362,7 +365,8 @@ impl<S: Stock, P: Pile> Contract<S, P> {
 
         let articles = issuer.issue(params);
         let conf = conf(&articles).map_err(MultiError::B)?;
-        let ledger = Ledger::new(articles, conf)
+				// let ledger = Ledger::new(articles, conf) - REPLACED
+        let ledger = RholangCodex::new(articles, conf)
             .map_err(MultiError::with_third)
             .map_err(MultiError::from_other_a)?;
         let conf: S::Conf = ledger.config();
@@ -379,7 +383,8 @@ impl<S: Stock, P: Pile> Contract<S, P> {
         stock_conf: S::Conf,
         pile_conf: P::Conf,
     ) -> Result<Self, MultiError<S::Error, P::Error>> {
-        let ledger = Ledger::load(stock_conf).map_err(MultiError::A)?;
+				// let ledger = Ledger::load(stock_conf).map_err(MultiError::A)?; - REPLACED
+        let ledger = RholangCodex::load(stock_conf).map_err(MultiError::A)?;
         let contract_id = ledger.contract_id();
         let pile = P::load(pile_conf).map_err(MultiError::B)?;
         Ok(Self { ledger, pile, contract_id })

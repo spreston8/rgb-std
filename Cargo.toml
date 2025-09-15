@@ -71,6 +71,7 @@ hypersonic.workspace = true
 bp-core = { workspace = true, optional = true }
 bp-invoice = { workspace = true, optional = true }
 rgb-core.workspace = true
+rholang-sonic = { path = "../f1r3fly/rholang-sonic" }
 rgb-invoice.workspace = true
 indexmap.workspace = true
 chrono.workspace = true
