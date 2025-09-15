@@ -71,7 +71,7 @@ hypersonic.workspace = true
 bp-core = { workspace = true, optional = true }
 bp-invoice = { workspace = true, optional = true }
 rgb-core.workspace = true
-rholang-sonic = { path = "../f1r3fly/rholang-sonic" }
+rholang-sonic = { git = "https://github.com/F1R3FLY-io/f1r3node.git", branch = "rgb_v12" } 
 rgb-invoice.workspace = true
 indexmap.workspace = true
 chrono.workspace = true

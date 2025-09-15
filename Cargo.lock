@@ -834,6 +834,7 @@ checksum = "460fbee9c2c2f33933d720630a6a0bac33ba7053db5344fac858d4b8952d77d5"
 [[package]]
 name = "crypto"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "async-trait",
  "base64",
@@ -2079,6 +2080,7 @@ checksum = "f2b8f3a258db515d5e91a904ce4ae3f73e091149b90cadbdb93d210bee07f63b"
 [[package]]
 name = "models"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "crypto",
  "hex",
@@ -2922,6 +2924,7 @@ dependencies = [
 [[package]]
 name = "rholang"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2959,6 +2962,7 @@ dependencies = [
 [[package]]
 name = "rholang-sonic"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "aluvm",
  "amplify",
@@ -3011,6 +3015,7 @@ dependencies = [
 [[package]]
 name = "rspace_plus_plus"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "async-trait",
  "bincode",
@@ -3415,6 +3420,7 @@ dependencies = [
 [[package]]
 name = "shared"
 version = "0.1.0"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "axum 0.7.9",
  "bincode",
@@ -4165,6 +4171,7 @@ checksum = "c4013970217383f67b18aef68f6fb2e8d409bc5755227092d32efb0422ba24b8"
 [[package]]
 name = "tree-sitter-rholang"
 version = "0.0.1"
+source = "git+https://github.com/F1R3FLY-io/f1r3node.git?branch=rgb_v12#0de900f33aaf3365627880d177c670056370c961"
 dependencies = [
  "cc",
  "tree-sitter-language",
